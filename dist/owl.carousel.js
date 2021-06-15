@@ -17,7 +17,6 @@
  */
  const isDesktop = () => !(isMobile() || isTablet());
  const isMobile = () => IS_MOBILE_REGEX.test(currentUserAgent);
-
 const IS_MOBILE_REGEX = /android|webos|iphone|blackberry|iemobile|opera mini/i;
 const IS_TABLET_REGEX = /ipad|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i;
 

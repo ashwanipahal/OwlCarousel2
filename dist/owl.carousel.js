@@ -383,7 +383,7 @@ const currentUserAgent = window.navigator.userAgent;
 				paddingRight = !isDesktop() ? this.settings.stagePaddingRight : 0,
 				coordinates = this._coordinates,
 				css = {
-					'width': Math.ceil(Math.abs(coordinates[coordinates.length - 1])) + paddingRight + paddingLeft,
+					'width': Math.ceil(Math.abs(coordinates[coordinates.length - 1])) + paddingRight + paddingLeft + 4,
 					'padding-left': paddingLeft || '',
 					'padding-right': paddingRight || ''
 				};

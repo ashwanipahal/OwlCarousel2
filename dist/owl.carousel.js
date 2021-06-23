@@ -15,14 +15,6 @@
  * @todo Test Zepto
  * @todo stagePadding calculate wrong active classes
  */
- const isDesktop = () => !(isMobile() || isTablet());
- const isMobile = () => IS_MOBILE_REGEX.test(currentUserAgent);
-const IS_MOBILE_REGEX = /android|webos|iphone|blackberry|iemobile|opera mini/i;
-const IS_TABLET_REGEX = /ipad|android 3.0|xoom|sch-i800|playbook|tablet|kindle/i;
-
-const isTablet = () => IS_TABLET_REGEX.test(currentUserAgent);
-
-const currentUserAgent = window.navigator.userAgent;
 
  ;(function($, window, document, undefined) {
 
@@ -380,7 +372,7 @@ const currentUserAgent = window.navigator.userAgent;
 		filter: [ 'width', 'items', 'settings' ],
 		run: function() {
 			var paddingLeft = this.settings.stagePaddingLeft,
-				paddingRight = !isDesktop() ? this.settings.stagePaddingRight : 0,
+				paddingRight = this.settings.stagePaddingRight,
 				coordinates = this._coordinates,
 				css = {
 					'width': Math.ceil(Math.abs(coordinates[coordinates.length - 1])) + paddingRight + paddingLeft + 4,
@@ -612,7 +604,7 @@ const currentUserAgent = window.navigator.userAgent;
 	 */
 	Owl.prototype.width = function(dimension) {
 		dimension = dimension || Owl.Width.Default;
-		this.settings.stagePaddingRight = !isDesktop() ? this.settings.stagePaddingRight : 0;
+		this.settings.stagePaddingRight = this.settings.stagePaddingRight;
 		switch (dimension) {
 			case Owl.Width.Inner:
 			case Owl.Width.Outer:
